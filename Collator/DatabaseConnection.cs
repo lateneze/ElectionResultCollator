@@ -72,6 +72,11 @@ namespace Collator
 
         public static void WriteToDatabase(int[] results, string pollingAgent)
         {
+            var npp_pa = results[0];
+            var ndc_pa = results[1];
+            var npp_pr = results[2];
+            var ndc_pr = results[3];
+            
             pollingAgent = pollingAgent.Replace("+233", "0");
             pollingAgent = pollingAgent.Substring(1);
             int pollingAgenti = int.Parse(pollingAgent);
