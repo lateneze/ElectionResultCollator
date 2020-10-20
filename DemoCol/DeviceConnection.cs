@@ -10,7 +10,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Collator
+namespace DemoCol
 {
     public class DeviceConnection
     {
@@ -18,8 +18,8 @@ namespace Collator
         public static SmsSubmitPdu outmsg = new SmsSubmitPdu();
         public static string sender = "";
         private static List<string> duplicateMessage = new List<string>();
-        public static string[] Parties = {"npp_pa", "ndc_pa", "npp_pr", "ndc_pr" };
-        
+        public static string[] Parties = { "npp_pa", "ndc_pa", "npp_pr", "ndc_pr" };
+
 
         public void InitializePortConnection(string comPort)
         {
@@ -43,17 +43,17 @@ namespace Collator
             // Get a list of serial port names and return them.
             string[] ports = SerialPort.GetPortNames();
             return ports;
-                      
+
         }
 
-        
+
         /// <summary>
         /// Processes the received PDU message event from the device sent by a polling agent.
         /// </summary>
         /// <param name="eventArgs"></param>
         private static void ProcessReceivedMessage(MessageReceivedEventArgs eventArgs)
         {
-            
+
             var obj = eventArgs.IndicationObject;
             MemoryLocation loc = null;
 
@@ -68,7 +68,7 @@ namespace Collator
             var textMessage = pdu.UserDataText;
             SmsDeliverPdu smsDeliver = (SmsDeliverPdu)pdu;
             sender = smsDeliver.OriginatingAddress.Replace("+233", "0");
-            
+
             Console.WriteLine($"New Results Received from {sender}");
 
             if (CheckFormat(textMessage))
@@ -110,7 +110,7 @@ namespace Collator
             {
                 Console.WriteLine($"Message from {sender} is not in approved format.");
             }
-            
+
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Collator
         {
             bool formatResult = true;
             var splitted = textMessage.Split('\n'); //Spilts the message into lines
-            foreach(var line in splitted)
+            foreach (var line in splitted)
             {
                 var trimedLine = RemoveWhiteSpaces(line);
                 var halfed = trimedLine.Split(':');
@@ -154,9 +154,9 @@ namespace Collator
                 {
                     formatResult = false;
                 }
-               
+
             }
-            
+
             return formatResult;
         }
 
@@ -206,7 +206,7 @@ namespace Collator
                     result.Add(npp_pr);
                     result.Add(ndc_pr);
                 }
-                else if(splitted[0].Contains("pr") && splitted[1].Contains("pr"))
+                else if (splitted[0].Contains("pr") && splitted[1].Contains("pr"))
                 {
                     int npp_pa = 0;
                     int ndc_pa = 0;
@@ -220,7 +220,7 @@ namespace Collator
                 }
             }
 
-            
+
 
             return result;
         }
@@ -241,6 +241,6 @@ namespace Collator
         {
             Console.WriteLine("Disconnected");
         }
-        
+
     }
 }

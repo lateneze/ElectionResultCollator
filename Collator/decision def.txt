@@ -1,0 +1,32 @@
+
+write	type
+0|1|2		al|pa|pr
+
+if 0 and | w_al >> 2, al, al_ins;
+
+if 0 and | w_pa >> 1, pa, pa_ins;
+
+if 0 and | w_pr >> 1, pr, pr_ins;
+
+
+
+if 1 and pa | w_pr >> 2, al, u_pr;
+
+if 1 and pr | w_pa >> 2, al, u_pa;
+
+
+
+if 1 and pa | w_al >> (check pa in w_al and al_ins) if true;
+
+if 1 and pr | w_al >> (check pr in w_al and al_ins) if  true;
+
+ 
+ 
+ 
+if 1 and al >> NA;
+
+if 2 and al | w_al >> NA;
+
+if 1 and pa | w_pa >> NA;
+
+if 1 and pr | w_pr >> NA;

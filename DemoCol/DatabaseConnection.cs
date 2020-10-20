@@ -1,5 +1,4 @@
-﻿using Dapper;
-using GsmComm.PduConverter;
+﻿using GsmComm.PduConverter;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,25 +9,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Collator
+namespace DemoCol
 {
     class DatabaseConnection
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["ElectionDBConnectionString"].ConnectionString;
+        static string connectionString = ConfigurationManager.ConnectionStrings["DemoCol.Properties.Settings.ElectionDBConnectionString"].ConnectionString;
 
-        internal static void GetParliamentaryResult(int[] results, string pollingAgent)
+        public static void GetParliamentaryResult()
         {
-            using (OleDbConnection cn = new OleDbConnection(connectionString))
+            using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
-                OleDbCommand command = new OleDbCommand("dbo.spGet_Parliamentary_Results", cn);
+                SqlCommand command = new SqlCommand("dbo.spGet_Parliamentary_Results", cn);
                 command.CommandType = CommandType.StoredProcedure;
                 var reader = command.ExecuteReader();
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
+                Console.WriteLine(dataTable.Columns[0].ColumnName);
+
             }
 
         }
+
+        public static void GetPresidentialResult()
+        {
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            {
+                cn.Open();
+                using (SqlCommand command = new SqlCommand("dbo.spGet_Presidential_Results", cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    var reader = command.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    Console.WriteLine(dataTable.Columns[0].ColumnName);
+                }
+
+                cn.Close();
+            }
+
+        }
+
+
+        public static void GetResult()
+        {
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            {
+                cn.Open();
+                using (SqlCommand command = new SqlCommand("dbo.spGet_All_Result", cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    var reader = command.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    Console.WriteLine(dataTable.Columns[0].ColumnName);
+                }
+
+                cn.Close();
+            }
+
+        }
+
+
 
         public static void WriteToDatabase(List<int> results, string pollingAgent)
         {
@@ -36,71 +78,27 @@ namespace Collator
             var ndc_pa = results[1];
             var npp_pr = results[2];
             var ndc_pr = results[3];
-            
+
 
             pollingAgent = pollingAgent.Substring(1);
             int pollingAgenti = int.Parse(pollingAgent);
 
-            using (OleDbConnection cn = new OleDbConnection(connectionString))
+            using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
-                OleDbCommand command = new OleDbCommand("dbo.spEnter_Results", cn);
-                command.Parameters.Add("@agent", OleDbType.Integer).Value = pollingAgenti;
+                SqlCommand command = new SqlCommand("dbo.spEnter_Results", cn);
+                command.Parameters.AddWithValue("@agent", pollingAgenti);
                 command.Parameters.AddWithValue("@npp_pa", npp_pa);
                 command.Parameters.AddWithValue("@ndc_pa", ndc_pa);
                 command.Parameters.AddWithValue("@npp_pr", npp_pr);
                 command.Parameters.AddWithValue("@ndc_pr", ndc_pr);
-                               
+
                 command.CommandType = CommandType.StoredProcedure;
                 command.ExecuteNonQuery();
-                               
+
                 cn.Close();
             }
-            
 
-
-            //using (OleDbConnection con = new OleDbConnection(connectionString))
-            //{
-            //    con.Open();
-            //    OleDbParameter p1 = new OleDbParameter("@agent", pollingAgenti);
-            //    p1.OleDbType = OleDbType.Integer;
-            //    OleDbParameter p2 = new OleDbParameter("@idd", OleDbType.Integer);
-            //    p2.Direction = ParameterDirection.Output;
-            //    OleDbCommand cmd = new OleDbCommand("dbo.spResult_Update");
-            //    cmd.Connection = con;
-            //    cmd.Parameters.Add(p1);
-            //    cmd.Parameters.Add(p2);
-
-
-            //    //p.Add("@agent", pollingAgenti);
-            //    //p.Add("@id", dbType: DbType.Int32, direction: ParameterDirection.Output);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    Console.WriteLine(cmd.ExecuteNonQuery());
-            //    var vvv = p2.Value;
-            //    Console.WriteLine($"First part:  {vvv}");
-            //    //con.Execute("dbo.spResult_Update", p, commandType: CommandType.StoredProcedure);
-
-            //    con.Close();               
-            //}
-
-            //var resulti = p.Get<int>("@id");
-            //Console.WriteLine($"First part:  {resulti}");
-
-            //using (SqlConnection con = new SqlConnection(connectionString))
-            //{
-            //    var resulti = p.Get<object>("@id");
-            //    Console.WriteLine($"First part:  {resulti}");
-
-
-            //    pr.Add("@resultID", resulti);
-            //    pr.Add("@npp", npp_pa);
-            //    pr.Add("@ndc", ndc_pa);
-
-            //    con.Execute("dbo.spResult_Details_Update", pr, commandType: CommandType.StoredProcedure);
-
-            //    Console.WriteLine("Record Submitted, Congrats");
-            //    con.Close();
-            //}
 
         }
 
@@ -141,24 +139,24 @@ namespace Collator
                 con.Open();
 
                 var insertText = "INSERT INTO Message ([sender],[time],[message]) VALUES (@sender,@time, @message)";
-               // var insertText = $"INSERT INTO Message ([sender],[time],[message]) VALUES ({pollingAgenti}, {time}, {textMessage})";
+                // var insertText = $"INSERT INTO Message ([sender],[time],[message]) VALUES ({pollingAgenti}, {time}, {textMessage})";
 
                 OleDbCommand cmd = new OleDbCommand(insertText, con);
                 //cmd.Parameters.Add("@ID", OleDbType.Integer).Value = 2;
                 cmd.Parameters.Add("@sender", OleDbType.Integer).Value = pollingAgenti;
                 cmd.Parameters.Add("@time", OleDbType.VarChar).Value = time;
                 cmd.Parameters.Add("@message", OleDbType.VarChar).Value = textMessage;
-                
+
                 Console.WriteLine(cmd.ExecuteNonQuery());
                 Console.WriteLine("Msg Submitted, Congrats");
                 con.Close();
             }
-                
+
         }
 
         internal static MessageExistenceStatus ValidateMessage(string textMessage, string pollingAgent)
         {
-            
+
             pollingAgent = pollingAgent.Substring(1);
             int pollingAgenti = int.Parse(pollingAgent);
             MessageExistenceStatus messageExistenceStatus = MessageExistenceStatus.New;
@@ -196,7 +194,7 @@ namespace Collator
 
                 return messageExistenceStatus;
             }
-               
+
         }
     }
 }

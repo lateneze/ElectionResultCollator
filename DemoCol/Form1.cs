@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Collator
+namespace DemoCol
 {
-    public partial class Viewer : Form
+    public partial class Form1 : Form
     {
-        public Viewer()
+        public Form1()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }
