@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace DemoCol
 {
     public partial class ResultComp : Form
     {
+        SqlDataAdapter da;
         public ResultComp()
         {
             InitializeComponent();
@@ -111,6 +113,12 @@ namespace DemoCol
             //presidentialData = DatabaseConnection.GetPresidentialResult();
 
             UpdateCharts();
+            SqlCommand command = new SqlCommand("dbo.spGet_All_Result", new SqlConnection(DatabaseConnection.connectionString));
+
+            da = new SqlDataAdapter(command);
+            DataSet DS = new DataSet();
+            da.Fill(DS);
+            dataGridResults.DataSource = DS.Tables[0];
         }
 
         public void UpdatePaChart()
@@ -176,6 +184,36 @@ namespace DemoCol
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             UpdateCharts();
+        }
+
+        private void buttonModifyResult_Click(object sender, EventArgs e)
+        {
+           
+
+            DataTable changes = ((DataTable)dataGridResults.DataSource).GetChanges();
+            if (changes != null)
+            {
+                foreach (DataRow result in changes.Rows)
+                {
+                    using (SqlCommand command = new SqlCommand("dbo.spResult_Details_Update", new SqlConnection(DatabaseConnection.connectionString)))
+                    {
+                        command.Connection.Open();
+                        command.Parameters.AddWithValue("@agent", result[0]);
+                        command.Parameters.AddWithValue("@npp_pa", result[1]);
+                        command.Parameters.AddWithValue("@ndc_pa", result[2]);
+                        command.Parameters.AddWithValue("@npp_pr", result[3]);
+                        command.Parameters.AddWithValue("@ndc_pr", result[4]);
+
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.ExecuteNonQuery();
+                        command.Connection.Close();
+                    }
+                }
+                    
+                
+                
+            }
+                
         }
     }
 }

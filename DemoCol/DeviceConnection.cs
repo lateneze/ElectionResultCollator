@@ -210,8 +210,8 @@ namespace DemoCol
                 {
                     int npp_pa = 0;
                     int ndc_pa = 0;
-                    int npp_pr = int.Parse(splitted[0].Substring(splitted[2].IndexOf("npp_pr") + "npp_pr".Length + 1));
-                    int ndc_pr = int.Parse(splitted[1].Substring(splitted[3].IndexOf("ndc_pr") + "ndc_pr".Length + 1));
+                    int npp_pr = int.Parse(splitted[0].Substring(splitted[0].IndexOf("npp_pr") + "npp_pr".Length + 1));
+                    int ndc_pr = int.Parse(splitted[1].Substring(splitted[1].IndexOf("ndc_pr") + "ndc_pr".Length + 1));
 
                     result.Add(npp_pa);
                     result.Add(ndc_pa);

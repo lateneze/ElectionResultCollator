@@ -45,8 +45,10 @@ namespace DemoCol
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonCon = new System.Windows.Forms.Button();
             this.panelFooter = new System.Windows.Forms.Panel();
+            this.buttonModifyResult = new System.Windows.Forms.Button();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
             this.resultfkIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paliamentaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +65,8 @@ namespace DemoCol
             this.spGet_Parliamentary_ResultsTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_Parliamentary_ResultsTableAdapter();
             this.spGetPresidentialResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spGet_Presidential_ResultsTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_Presidential_ResultsTableAdapter();
-            this.buttonLoad = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
+            this.panelFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).BeginInit();
@@ -85,6 +87,16 @@ namespace DemoCol
             this.panelHeader.Size = new System.Drawing.Size(1350, 85);
             this.panelHeader.TabIndex = 0;
             // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Location = new System.Drawing.Point(1091, 18);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(126, 39);
+            this.buttonLoad.TabIndex = 1;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
             // buttonCon
             // 
             this.buttonCon.Location = new System.Drawing.Point(12, 12);
@@ -97,11 +109,22 @@ namespace DemoCol
             // 
             // panelFooter
             // 
+            this.panelFooter.Controls.Add(this.buttonModifyResult);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 705);
+            this.panelFooter.Location = new System.Drawing.Point(0, 684);
             this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(1350, 31);
+            this.panelFooter.Size = new System.Drawing.Size(1350, 52);
             this.panelFooter.TabIndex = 1;
+            // 
+            // buttonModifyResult
+            // 
+            this.buttonModifyResult.Location = new System.Drawing.Point(12, 6);
+            this.buttonModifyResult.Name = "buttonModifyResult";
+            this.buttonModifyResult.Size = new System.Drawing.Size(117, 38);
+            this.buttonModifyResult.TabIndex = 0;
+            this.buttonModifyResult.Text = "Modify";
+            this.buttonModifyResult.UseVisualStyleBackColor = true;
+            this.buttonModifyResult.Click += new System.EventHandler(this.buttonModifyResult_Click);
             // 
             // dataGridResults
             // 
@@ -119,7 +142,7 @@ namespace DemoCol
             this.dataGridResults.Name = "dataGridResults";
             this.dataGridResults.RowHeadersWidth = 51;
             this.dataGridResults.RowTemplate.Height = 24;
-            this.dataGridResults.Size = new System.Drawing.Size(1350, 620);
+            this.dataGridResults.Size = new System.Drawing.Size(1350, 599);
             this.dataGridResults.TabIndex = 2;
             // 
             // resultfkIDDataGridViewTextBoxColumn
@@ -133,7 +156,7 @@ namespace DemoCol
             // paliamentaryDataGridViewTextBoxColumn
             // 
             this.paliamentaryDataGridViewTextBoxColumn.DataPropertyName = "paliamentary";
-            this.paliamentaryDataGridViewTextBoxColumn.HeaderText = "paliamentary";
+            this.paliamentaryDataGridViewTextBoxColumn.HeaderText = "NPP Paliamentary";
             this.paliamentaryDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.paliamentaryDataGridViewTextBoxColumn.Name = "paliamentaryDataGridViewTextBoxColumn";
             this.paliamentaryDataGridViewTextBoxColumn.Width = 125;
@@ -141,7 +164,7 @@ namespace DemoCol
             // expr1DataGridViewTextBoxColumn
             // 
             this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.HeaderText = "Expr1";
+            this.expr1DataGridViewTextBoxColumn.HeaderText = "NDC Paliamentary";
             this.expr1DataGridViewTextBoxColumn.MinimumWidth = 6;
             this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
             this.expr1DataGridViewTextBoxColumn.Width = 125;
@@ -149,7 +172,7 @@ namespace DemoCol
             // presidentialDataGridViewTextBoxColumn
             // 
             this.presidentialDataGridViewTextBoxColumn.DataPropertyName = "presidential";
-            this.presidentialDataGridViewTextBoxColumn.HeaderText = "presidential";
+            this.presidentialDataGridViewTextBoxColumn.HeaderText = "NPP Presidential";
             this.presidentialDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.presidentialDataGridViewTextBoxColumn.Name = "presidentialDataGridViewTextBoxColumn";
             this.presidentialDataGridViewTextBoxColumn.Width = 125;
@@ -157,7 +180,7 @@ namespace DemoCol
             // expr2DataGridViewTextBoxColumn
             // 
             this.expr2DataGridViewTextBoxColumn.DataPropertyName = "Expr2";
-            this.expr2DataGridViewTextBoxColumn.HeaderText = "Expr2";
+            this.expr2DataGridViewTextBoxColumn.HeaderText = "NDC Presidential";
             this.expr2DataGridViewTextBoxColumn.MinimumWidth = 6;
             this.expr2DataGridViewTextBoxColumn.Name = "expr2DataGridViewTextBoxColumn";
             this.expr2DataGridViewTextBoxColumn.Width = 125;
@@ -177,9 +200,9 @@ namespace DemoCol
             this.panelCharts.Controls.Add(this.chartPresidential);
             this.panelCharts.Controls.Add(this.chartParliament);
             this.panelCharts.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelCharts.Location = new System.Drawing.Point(728, 85);
+            this.panelCharts.Location = new System.Drawing.Point(764, 85);
             this.panelCharts.Name = "panelCharts";
-            this.panelCharts.Size = new System.Drawing.Size(622, 620);
+            this.panelCharts.Size = new System.Drawing.Size(586, 599);
             this.panelCharts.TabIndex = 3;
             // 
             // chartPresidential
@@ -238,16 +261,6 @@ namespace DemoCol
             // 
             this.spGet_Presidential_ResultsTableAdapter.ClearBeforeFill = true;
             // 
-            // buttonLoad
-            // 
-            this.buttonLoad.Location = new System.Drawing.Point(1091, 18);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(126, 39);
-            this.buttonLoad.TabIndex = 1;
-            this.buttonLoad.Text = "Load";
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
-            // 
             // ResultComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,6 +274,7 @@ namespace DemoCol
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelHeader.ResumeLayout(false);
+            this.panelFooter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).EndInit();
@@ -284,17 +298,18 @@ namespace DemoCol
         private ElectionDBDataSet electionDBDataSet;
         private System.Windows.Forms.BindingSource spGetAllResultBindingSource;
         private ElectionDBDataSetTableAdapters.spGet_All_ResultTableAdapter spGet_All_ResultTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultfkIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paliamentaryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn presidentialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expr2DataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource spGetParliamentaryResultsBindingSource;
         private ElectionDBDataSetTableAdapters.spGet_Parliamentary_ResultsTableAdapter spGet_Parliamentary_ResultsTableAdapter;
         private System.Windows.Forms.BindingSource spGetPresidentialResultsBindingSource;
         private ElectionDBDataSetTableAdapters.spGet_Presidential_ResultsTableAdapter spGet_Presidential_ResultsTableAdapter;
         private System.Windows.Forms.Button buttonCon;
         private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultfkIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paliamentaryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn presidentialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expr2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonModifyResult;
     }
 }
 

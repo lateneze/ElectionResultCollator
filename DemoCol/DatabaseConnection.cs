@@ -13,7 +13,7 @@ namespace DemoCol
 {
     class DatabaseConnection
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["DemoCol.Properties.Settings.ElectionDBConnectionString"].ConnectionString;
+        public static string connectionString = ConfigurationManager.ConnectionStrings["DemoCol.Properties.Settings.ElectionDBConnectionString"].ConnectionString;
 
         public static DataTable GetParliamentaryResult()
         {
