@@ -15,24 +15,30 @@ namespace DemoCol
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["DemoCol.Properties.Settings.ElectionDBConnectionString"].ConnectionString;
 
-        public static void GetParliamentaryResult()
+        public static DataTable GetParliamentaryResult()
         {
+            DataTable dataTable;
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
-                SqlCommand command = new SqlCommand("dbo.spGet_Parliamentary_Results", cn);
-                command.CommandType = CommandType.StoredProcedure;
-                var reader = command.ExecuteReader();
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                Console.WriteLine(dataTable.Columns[0].ColumnName);
+                using (SqlCommand command = new SqlCommand("dbo.spGet_Parliamentary_Results", cn))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    var reader = command.ExecuteReader();
+                    dataTable = new DataTable();
+                    dataTable.Load(reader);
+                }
 
+                cn.Close();
             }
+
+            return dataTable;
 
         }
 
-        public static void GetPresidentialResult()
+        public static DataTable GetPresidentialResult()
         {
+            DataTable dataTable;
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
@@ -40,19 +46,20 @@ namespace DemoCol
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     var reader = command.ExecuteReader();
-                    DataTable dataTable = new DataTable();
+                    dataTable = new DataTable();
                     dataTable.Load(reader);
-                    Console.WriteLine(dataTable.Columns[0].ColumnName);
+                    
                 }
 
                 cn.Close();
             }
-
+            return dataTable;
         }
 
 
-        public static void GetResult()
+        public static DataTable GetResult()
         {
+            DataTable dataTable;
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
@@ -60,14 +67,14 @@ namespace DemoCol
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     var reader = command.ExecuteReader();
-                    DataTable dataTable = new DataTable();
+                    dataTable = new DataTable();
                     dataTable.Load(reader);
-                    Console.WriteLine(dataTable.Columns[0].ColumnName);
+                    
                 }
 
                 cn.Close();
             }
-
+            return dataTable;
         }
 
 
@@ -104,7 +111,7 @@ namespace DemoCol
 
         internal static void SaveDuplicateMessage(string textMessage, string pollingAgent, SmsTimestamp smsTimestamp)
         {
-            pollingAgent = pollingAgent.Replace("+233", "0");
+           
             pollingAgent = pollingAgent.Substring(1);
             int pollingAgenti = int.Parse(pollingAgent);
             string time = smsTimestamp.ToString(false);
@@ -129,7 +136,7 @@ namespace DemoCol
 
         internal static void SaveMessage(string textMessage, string pollingAgent, SmsTimestamp smsTimestamp)
         {
-            pollingAgent = pollingAgent.Replace("+233", "0");
+            
             pollingAgent = pollingAgent.Substring(1);
             int pollingAgenti = int.Parse(pollingAgent);
             string time = smsTimestamp.ToString(false);
@@ -161,13 +168,13 @@ namespace DemoCol
             int pollingAgenti = int.Parse(pollingAgent);
             MessageExistenceStatus messageExistenceStatus = MessageExistenceStatus.New;
 
-            using (OleDbConnection con = new OleDbConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
 
                 var commandText = $"SELECT * FROM Message WHERE sender = {pollingAgenti};";
 
-                OleDbCommand cmd = new OleDbCommand(commandText, con);
+                SqlCommand cmd = new SqlCommand(commandText, con);
                 var reader = (cmd.ExecuteReader());
                 if (reader.HasRows)
                 {

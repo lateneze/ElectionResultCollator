@@ -83,7 +83,7 @@ namespace DemoCol
                             var results = ExtractResultsFromMessage(textMessage);
                             Console.WriteLine($"NPP PALIAMENTARY = {results[0]}\nNDC PALIAMENTARY = {results[1]}\nNPP PRESIDENTIAL = {results[2]}\nNDC PRESIDENTIAL = {results[3]}");
                             DatabaseConnection.WriteToDatabase(results, sender);
-                            DatabaseConnection.SaveMessage(textMessage, sender, smsDeliver.GetTimestamp());
+                            //DatabaseConnection.SaveMessage(textMessage, sender, smsDeliver.GetTimestamp());
 
                             //SmsSubmitPdu msgtosend = new SmsSubmitPdu("Results Received", smsDeliver.OriginatingAddress);
                             //port.SendMessage(msgtosend);
@@ -98,7 +98,7 @@ namespace DemoCol
                         break;
                     case MessageExistenceStatus.ExistsButDifferent:
                         //TODO - comeplete
-                        DatabaseConnection.SaveDuplicateMessage(textMessage, sender, smsDeliver.GetTimestamp());
+                        //DatabaseConnection.SaveDuplicateMessage(textMessage, sender, smsDeliver.GetTimestamp());
                         duplicateMessage.Add(sender);
                         break;
                     default:
@@ -229,6 +229,8 @@ namespace DemoCol
         {
             //Console.WriteLine("new message received");
             ProcessReceivedMessage(eventArgs);
+            Program.resultComp.UpdateSafe();
+            
 
         }
 

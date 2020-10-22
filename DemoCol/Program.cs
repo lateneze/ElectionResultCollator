@@ -14,6 +14,7 @@ namespace DemoCol
     static class Program
     {
         public static DeviceConnection serialCOMDevice = new DeviceConnection();
+        public static ResultComp resultComp = null;
         //public static DatabaseConnection databaseConnection;
 
         /// <summary>
@@ -22,13 +23,15 @@ namespace DemoCol
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ResultViewer());
-            List<int> results = new List<int> { 78, 90, 0, 0 };
-            //int outcome = 0;
-            DatabaseConnection.GetResult();
-            //Console.WriteLine($"Outcome is {outcome}");
+            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            resultComp = new ResultComp();
+            Application.Run(resultComp);
+            //List<int> results = new List<int> { 78, 90, 0, 0 };
+            ////int outcome = 0;
+            //DatabaseConnection.GetResult();
+            ////Console.WriteLine($"Outcome is {outcome}");
 
         }
 
