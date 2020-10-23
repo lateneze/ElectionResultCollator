@@ -119,12 +119,12 @@ namespace DemoCol
             panelCharts.Width = (this.Size.Width - dataGridResults.Width);
 
             UpdateCharts();
-            SqlCommand command = new SqlCommand("dbo.spGet_All_Result", new SqlConnection(DatabaseConnection.connectionString));
+            //SqlCommand command = new SqlCommand("dbo.spGet_All_Result", new SqlConnection(DatabaseConnection.connectionString));
 
-            da = new SqlDataAdapter(command);
-            DataSet DS = new DataSet();
-            da.Fill(DS);
-            dataGridResults.DataSource = DS.Tables[0];
+            //da = new SqlDataAdapter(command);
+            //DataSet DS = new DataSet();
+            //da.Fill(DS);
+            //dataGridResults.DataSource = DS.Tables[0];
         }
 
         public void UpdatePaChart()

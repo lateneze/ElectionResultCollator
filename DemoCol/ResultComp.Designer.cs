@@ -66,6 +66,9 @@ namespace DemoCol
             this.spGet_Parliamentary_ResultsTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_Parliamentary_ResultsTableAdapter();
             this.spGetPresidentialResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spGet_Presidential_ResultsTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_Presidential_ResultsTableAdapter();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
@@ -76,6 +79,7 @@ namespace DemoCol
             ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetParliamentaryResultsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetPresidentialResultsBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -84,16 +88,17 @@ namespace DemoCol
             this.panelHeader.Controls.Add(this.labelWidth);
             this.panelHeader.Controls.Add(this.buttonLoad);
             this.panelHeader.Controls.Add(this.buttonCon);
+            this.panelHeader.Controls.Add(this.menuStrip1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1350, 85);
+            this.panelHeader.Size = new System.Drawing.Size(1350, 104);
             this.panelHeader.TabIndex = 0;
             // 
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(651, 50);
+            this.labelHeight.Location = new System.Drawing.Point(517, 67);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(46, 17);
             this.labelHeight.TabIndex = 3;
@@ -103,7 +108,7 @@ namespace DemoCol
             // 
             this.labelWidth.AutoSize = true;
             this.labelWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelWidth.Location = new System.Drawing.Point(655, 13);
+            this.labelWidth.Location = new System.Drawing.Point(520, 48);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(42, 19);
             this.labelWidth.TabIndex = 2;
@@ -112,7 +117,7 @@ namespace DemoCol
             // buttonLoad
             // 
             this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoad.Location = new System.Drawing.Point(1091, 18);
+            this.buttonLoad.Location = new System.Drawing.Point(1105, 44);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(126, 39);
             this.buttonLoad.TabIndex = 1;
@@ -122,7 +127,7 @@ namespace DemoCol
             // 
             // buttonCon
             // 
-            this.buttonCon.Location = new System.Drawing.Point(12, 12);
+            this.buttonCon.Location = new System.Drawing.Point(12, 44);
             this.buttonCon.Name = "buttonCon";
             this.buttonCon.Size = new System.Drawing.Size(100, 23);
             this.buttonCon.TabIndex = 0;
@@ -152,6 +157,8 @@ namespace DemoCol
             // dataGridResults
             // 
             this.dataGridResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridResults.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,11 +169,13 @@ namespace DemoCol
             this.dataGridResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridResults.Location = new System.Drawing.Point(0, 85);
+            this.dataGridResults.GridColor = System.Drawing.SystemColors.Desktop;
+            this.dataGridResults.Location = new System.Drawing.Point(0, 104);
+            this.dataGridResults.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridResults.Name = "dataGridResults";
             this.dataGridResults.RowHeadersWidth = 51;
             this.dataGridResults.RowTemplate.Height = 24;
-            this.dataGridResults.Size = new System.Drawing.Size(894, 599);
+            this.dataGridResults.Size = new System.Drawing.Size(894, 580);
             this.dataGridResults.TabIndex = 2;
             // 
             // panelCharts
@@ -174,9 +183,9 @@ namespace DemoCol
             this.panelCharts.Controls.Add(this.chartPresidential);
             this.panelCharts.Controls.Add(this.chartParliament);
             this.panelCharts.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelCharts.Location = new System.Drawing.Point(915, 85);
+            this.panelCharts.Location = new System.Drawing.Point(915, 104);
             this.panelCharts.Name = "panelCharts";
-            this.panelCharts.Size = new System.Drawing.Size(435, 599);
+            this.panelCharts.Size = new System.Drawing.Size(435, 580);
             this.panelCharts.TabIndex = 3;
             // 
             // chartPresidential
@@ -194,7 +203,7 @@ namespace DemoCol
             legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
             legend1.Name = "Legend1";
             this.chartPresidential.Legends.Add(legend1);
-            this.chartPresidential.Location = new System.Drawing.Point(34, 344);
+            this.chartPresidential.Location = new System.Drawing.Point(34, 335);
             this.chartPresidential.Name = "chartPresidential";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -228,7 +237,7 @@ namespace DemoCol
             legend2.Name = "Legend1";
             legend2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.chartParliament.Legends.Add(legend2);
-            this.chartParliament.Location = new System.Drawing.Point(34, 40);
+            this.chartParliament.Location = new System.Drawing.Point(34, 31);
             this.chartParliament.Name = "chartParliament";
             this.chartParliament.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series2.ChartArea = "ChartArea1";
@@ -277,6 +286,31 @@ namespace DemoCol
             // 
             this.spGet_Presidential_ResultsTableAdapter.ClearBeforeFill = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 28);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // ResultComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,6 +320,7 @@ namespace DemoCol
             this.Controls.Add(this.dataGridResults);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ResultComp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NKWANTA NORTH ELECTION RESULT COLLATOR";
@@ -302,6 +337,8 @@ namespace DemoCol
             ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetParliamentaryResultsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetPresidentialResultsBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -326,6 +363,9 @@ namespace DemoCol
         private System.Windows.Forms.Button buttonModifyResult;
         private System.Windows.Forms.Label labelHeight;
         private System.Windows.Forms.Label labelWidth;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
