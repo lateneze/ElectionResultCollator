@@ -4569,15 +4569,17 @@ namespace DemoCol {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class spGet_All_ResultDataTable : global::System.Data.TypedTableBase<spGet_All_ResultRow> {
             
-            private global::System.Data.DataColumn columnresult_fk_ID;
+            private global::System.Data.DataColumn columnPolling_Station;
             
-            private global::System.Data.DataColumn columnpaliamentary;
+            private global::System.Data.DataColumn columnpolling_agent;
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnNPP_Parliamentary;
             
-            private global::System.Data.DataColumn columnpresidential;
+            private global::System.Data.DataColumn columnNDC_Parliamentary;
             
-            private global::System.Data.DataColumn columnExpr2;
+            private global::System.Data.DataColumn columnNPP_Presidential;
+            
+            private global::System.Data.DataColumn columnNDC_Presidential;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4614,41 +4616,49 @@ namespace DemoCol {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn result_fk_IDColumn {
+            public global::System.Data.DataColumn Polling_StationColumn {
                 get {
-                    return this.columnresult_fk_ID;
+                    return this.columnPolling_Station;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn paliamentaryColumn {
+            public global::System.Data.DataColumn polling_agentColumn {
                 get {
-                    return this.columnpaliamentary;
+                    return this.columnpolling_agent;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn NPP_ParliamentaryColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columnNPP_Parliamentary;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn presidentialColumn {
+            public global::System.Data.DataColumn NDC_ParliamentaryColumn {
                 get {
-                    return this.columnpresidential;
+                    return this.columnNDC_Parliamentary;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr2Column {
+            public global::System.Data.DataColumn NPP_PresidentialColumn {
                 get {
-                    return this.columnExpr2;
+                    return this.columnNPP_Presidential;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NDC_PresidentialColumn {
+                get {
+                    return this.columnNDC_Presidential;
                 }
             }
             
@@ -4689,17 +4699,25 @@ namespace DemoCol {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public spGet_All_ResultRow AddspGet_All_ResultRow(int result_fk_ID, int paliamentary, int Expr1, int presidential, int Expr2) {
+            public spGet_All_ResultRow AddspGet_All_ResultRow(string Polling_Station, int polling_agent, int NPP_Parliamentary, int NDC_Parliamentary, int NPP_Presidential, int NDC_Presidential) {
                 spGet_All_ResultRow rowspGet_All_ResultRow = ((spGet_All_ResultRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        result_fk_ID,
-                        paliamentary,
-                        Expr1,
-                        presidential,
-                        Expr2};
+                        Polling_Station,
+                        polling_agent,
+                        NPP_Parliamentary,
+                        NDC_Parliamentary,
+                        NPP_Presidential,
+                        NDC_Presidential};
                 rowspGet_All_ResultRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspGet_All_ResultRow);
                 return rowspGet_All_ResultRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public spGet_All_ResultRow FindBypolling_agent(int polling_agent) {
+                return ((spGet_All_ResultRow)(this.Rows.Find(new object[] {
+                            polling_agent})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4719,26 +4737,39 @@ namespace DemoCol {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnresult_fk_ID = base.Columns["result_fk_ID"];
-                this.columnpaliamentary = base.Columns["paliamentary"];
-                this.columnExpr1 = base.Columns["Expr1"];
-                this.columnpresidential = base.Columns["presidential"];
-                this.columnExpr2 = base.Columns["Expr2"];
+                this.columnPolling_Station = base.Columns["Polling Station"];
+                this.columnpolling_agent = base.Columns["polling_agent"];
+                this.columnNPP_Parliamentary = base.Columns["NPP Parliamentary"];
+                this.columnNDC_Parliamentary = base.Columns["NDC Parliamentary"];
+                this.columnNPP_Presidential = base.Columns["NPP Presidential"];
+                this.columnNDC_Presidential = base.Columns["NDC Presidential"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnresult_fk_ID = new global::System.Data.DataColumn("result_fk_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnresult_fk_ID);
-                this.columnpaliamentary = new global::System.Data.DataColumn("paliamentary", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpaliamentary);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
-                this.columnpresidential = new global::System.Data.DataColumn("presidential", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpresidential);
-                this.columnExpr2 = new global::System.Data.DataColumn("Expr2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr2);
+                this.columnPolling_Station = new global::System.Data.DataColumn("Polling Station", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPolling_Station.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Polling_Station");
+                this.columnPolling_Station.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "Polling_StationColumn");
+                this.columnPolling_Station.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnPolling_Station");
+                this.columnPolling_Station.ExtendedProperties.Add("Generator_UserColumnName", "Polling Station");
+                base.Columns.Add(this.columnPolling_Station);
+                this.columnpolling_agent = new global::System.Data.DataColumn("polling_agent", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpolling_agent);
+                this.columnNPP_Parliamentary = new global::System.Data.DataColumn("NPP Parliamentary", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNPP_Parliamentary);
+                this.columnNDC_Parliamentary = new global::System.Data.DataColumn("NDC Parliamentary", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNDC_Parliamentary);
+                this.columnNPP_Presidential = new global::System.Data.DataColumn("NPP Presidential", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNPP_Presidential);
+                this.columnNDC_Presidential = new global::System.Data.DataColumn("NDC Presidential", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNDC_Presidential);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnpolling_agent}, true));
+                this.columnPolling_Station.ReadOnly = true;
+                this.columnPolling_Station.MaxLength = 306;
+                this.columnpolling_agent.AllowDBNull = false;
+                this.columnpolling_agent.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6307,142 +6338,153 @@ namespace DemoCol {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int result_fk_ID {
+            public string Polling_Station {
                 get {
                     try {
-                        return ((int)(this[this.tablespGet_All_Result.result_fk_IDColumn]));
+                        return ((string)(this[this.tablespGet_All_Result.Polling_StationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'result_fk_ID\' in table \'spGet_All_Result\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Polling Station\' in table \'spGet_All_Result\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespGet_All_Result.result_fk_IDColumn] = value;
+                    this[this.tablespGet_All_Result.Polling_StationColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int paliamentary {
+            public int polling_agent {
+                get {
+                    return ((int)(this[this.tablespGet_All_Result.polling_agentColumn]));
+                }
+                set {
+                    this[this.tablespGet_All_Result.polling_agentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int NPP_Parliamentary {
                 get {
                     try {
-                        return ((int)(this[this.tablespGet_All_Result.paliamentaryColumn]));
+                        return ((int)(this[this.tablespGet_All_Result.NPP_ParliamentaryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'paliamentary\' in table \'spGet_All_Result\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NPP Parliamentary\' in table \'spGet_All_Result\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespGet_All_Result.paliamentaryColumn] = value;
+                    this[this.tablespGet_All_Result.NPP_ParliamentaryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Expr1 {
+            public int NDC_Parliamentary {
                 get {
                     try {
-                        return ((int)(this[this.tablespGet_All_Result.Expr1Column]));
+                        return ((int)(this[this.tablespGet_All_Result.NDC_ParliamentaryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'spGet_All_Result\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NDC Parliamentary\' in table \'spGet_All_Result\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespGet_All_Result.Expr1Column] = value;
+                    this[this.tablespGet_All_Result.NDC_ParliamentaryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int presidential {
+            public int NPP_Presidential {
                 get {
                     try {
-                        return ((int)(this[this.tablespGet_All_Result.presidentialColumn]));
+                        return ((int)(this[this.tablespGet_All_Result.NPP_PresidentialColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'presidential\' in table \'spGet_All_Result\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NPP Presidential\' in table \'spGet_All_Result\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespGet_All_Result.presidentialColumn] = value;
+                    this[this.tablespGet_All_Result.NPP_PresidentialColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Expr2 {
+            public int NDC_Presidential {
                 get {
                     try {
-                        return ((int)(this[this.tablespGet_All_Result.Expr2Column]));
+                        return ((int)(this[this.tablespGet_All_Result.NDC_PresidentialColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr2\' in table \'spGet_All_Result\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NDC Presidential\' in table \'spGet_All_Result\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablespGet_All_Result.Expr2Column] = value;
+                    this[this.tablespGet_All_Result.NDC_PresidentialColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isresult_fk_IDNull() {
-                return this.IsNull(this.tablespGet_All_Result.result_fk_IDColumn);
+            public bool IsPolling_StationNull() {
+                return this.IsNull(this.tablespGet_All_Result.Polling_StationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setresult_fk_IDNull() {
-                this[this.tablespGet_All_Result.result_fk_IDColumn] = global::System.Convert.DBNull;
+            public void SetPolling_StationNull() {
+                this[this.tablespGet_All_Result.Polling_StationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IspaliamentaryNull() {
-                return this.IsNull(this.tablespGet_All_Result.paliamentaryColumn);
+            public bool IsNPP_ParliamentaryNull() {
+                return this.IsNull(this.tablespGet_All_Result.NPP_ParliamentaryColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetpaliamentaryNull() {
-                this[this.tablespGet_All_Result.paliamentaryColumn] = global::System.Convert.DBNull;
+            public void SetNPP_ParliamentaryNull() {
+                this[this.tablespGet_All_Result.NPP_ParliamentaryColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tablespGet_All_Result.Expr1Column);
+            public bool IsNDC_ParliamentaryNull() {
+                return this.IsNull(this.tablespGet_All_Result.NDC_ParliamentaryColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tablespGet_All_Result.Expr1Column] = global::System.Convert.DBNull;
+            public void SetNDC_ParliamentaryNull() {
+                this[this.tablespGet_All_Result.NDC_ParliamentaryColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IspresidentialNull() {
-                return this.IsNull(this.tablespGet_All_Result.presidentialColumn);
+            public bool IsNPP_PresidentialNull() {
+                return this.IsNull(this.tablespGet_All_Result.NPP_PresidentialColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetpresidentialNull() {
-                this[this.tablespGet_All_Result.presidentialColumn] = global::System.Convert.DBNull;
+            public void SetNPP_PresidentialNull() {
+                this[this.tablespGet_All_Result.NPP_PresidentialColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr2Null() {
-                return this.IsNull(this.tablespGet_All_Result.Expr2Column);
+            public bool IsNDC_PresidentialNull() {
+                return this.IsNull(this.tablespGet_All_Result.NDC_PresidentialColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr2Null() {
-                this[this.tablespGet_All_Result.Expr2Column] = global::System.Convert.DBNull;
+            public void SetNDC_PresidentialNull() {
+                this[this.tablespGet_All_Result.NDC_PresidentialColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10901,11 +10943,12 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "spGet_All_Result";
-            tableMapping.ColumnMappings.Add("result_fk_ID", "result_fk_ID");
-            tableMapping.ColumnMappings.Add("paliamentary", "paliamentary");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
-            tableMapping.ColumnMappings.Add("presidential", "presidential");
-            tableMapping.ColumnMappings.Add("Expr2", "Expr2");
+            tableMapping.ColumnMappings.Add("Polling Station", "Polling Station");
+            tableMapping.ColumnMappings.Add("polling_agent", "polling_agent");
+            tableMapping.ColumnMappings.Add("NPP Parliamentary", "NPP Parliamentary");
+            tableMapping.ColumnMappings.Add("NDC Parliamentary", "NDC Parliamentary");
+            tableMapping.ColumnMappings.Add("NPP Presidential", "NPP Presidential");
+            tableMapping.ColumnMappings.Add("NDC Presidential", "NDC Presidential");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

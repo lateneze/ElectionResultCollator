@@ -16,11 +16,11 @@
     <Shape ID="DesignTable:Results" ZOrder="14" X="70" Y="70" Height="204" Width="217" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
     <Shape ID="DesignTable:spGet_Parliamentary_Results" ZOrder="13" X="1690" Y="70" Height="135" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
     <Shape ID="DesignTable:spGet_Presidential_Results" ZOrder="12" X="2060" Y="70" Height="135" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="76" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="5" X="2430" Y="70" Height="309" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
     <Shape ID="DesignTable:p1" ZOrder="4" X="2800" Y="70" Height="158" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:p2" ZOrder="3" X="3053" Y="70" Height="158" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:pAll" ZOrder="2" X="3306" Y="70" Height="204" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
-    <Shape ID="DesignTable:spGet_All_Result" ZOrder="1" X="3570" Y="70" Height="204" Width="284" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
+    <Shape ID="DesignTable:spGet_All_Result" ZOrder="1" X="3570" Y="70" Height="227" Width="284" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="5" X="2430" Y="70" Height="309" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_Polling_Station_Community" ZOrder="11" LineWidth="11">

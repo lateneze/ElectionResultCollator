@@ -591,11 +591,12 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="result_fk_ID" DataSetColumn="result_fk_ID" />
-              <Mapping SourceColumn="paliamentary" DataSetColumn="paliamentary" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
-              <Mapping SourceColumn="presidential" DataSetColumn="presidential" />
-              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="Polling Station" DataSetColumn="Polling Station" />
+              <Mapping SourceColumn="polling_agent" DataSetColumn="polling_agent" />
+              <Mapping SourceColumn="NPP Parliamentary" DataSetColumn="NPP Parliamentary" />
+              <Mapping SourceColumn="NDC Parliamentary" DataSetColumn="NDC Parliamentary" />
+              <Mapping SourceColumn="NPP Presidential" DataSetColumn="NPP Presidential" />
+              <Mapping SourceColumn="NDC Presidential" DataSetColumn="NDC Presidential" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -776,7 +777,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
   <xs:element name="ElectionDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ElectionDBDataSet" msprop:Generator_UserDSName="ElectionDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Community" msprop:Generator_TableClassName="CommunityDataTable" msprop:Generator_TableVarName="tableCommunity" msprop:Generator_RowChangedName="CommunityRowChanged" msprop:Generator_TablePropName="Community" msprop:Generator_RowDeletingName="CommunityRowDeleting" msprop:Generator_RowChangingName="CommunityRowChanging" msprop:Generator_RowEvHandlerName="CommunityRowChangeEventHandler" msprop:Generator_RowDeletedName="CommunityRowDeleted" msprop:Generator_RowClassName="CommunityRow" msprop:Generator_UserTableName="Community" msprop:Generator_RowEvArgName="CommunityRowChangeEvent">
+        <xs:element name="Community" msprop:Generator_TableClassName="CommunityDataTable" msprop:Generator_TableVarName="tableCommunity" msprop:Generator_TablePropName="Community" msprop:Generator_RowDeletingName="CommunityRowDeleting" msprop:Generator_RowChangingName="CommunityRowChanging" msprop:Generator_RowEvHandlerName="CommunityRowChangeEventHandler" msprop:Generator_RowDeletedName="CommunityRowDeleted" msprop:Generator_UserTableName="Community" msprop:Generator_RowChangedName="CommunityRowChanged" msprop:Generator_RowEvArgName="CommunityRowChangeEvent" msprop:Generator_RowClassName="CommunityRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -790,7 +791,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Duplicate_Message" msprop:Generator_TableClassName="Duplicate_MessageDataTable" msprop:Generator_TableVarName="tableDuplicate_Message" msprop:Generator_RowChangedName="Duplicate_MessageRowChanged" msprop:Generator_TablePropName="Duplicate_Message" msprop:Generator_RowDeletingName="Duplicate_MessageRowDeleting" msprop:Generator_RowChangingName="Duplicate_MessageRowChanging" msprop:Generator_RowEvHandlerName="Duplicate_MessageRowChangeEventHandler" msprop:Generator_RowDeletedName="Duplicate_MessageRowDeleted" msprop:Generator_RowClassName="Duplicate_MessageRow" msprop:Generator_UserTableName="Duplicate_Message" msprop:Generator_RowEvArgName="Duplicate_MessageRowChangeEvent">
+        <xs:element name="Duplicate_Message" msprop:Generator_TableClassName="Duplicate_MessageDataTable" msprop:Generator_TableVarName="tableDuplicate_Message" msprop:Generator_TablePropName="Duplicate_Message" msprop:Generator_RowDeletingName="Duplicate_MessageRowDeleting" msprop:Generator_RowChangingName="Duplicate_MessageRowChanging" msprop:Generator_RowEvHandlerName="Duplicate_MessageRowChangeEventHandler" msprop:Generator_RowDeletedName="Duplicate_MessageRowDeleted" msprop:Generator_UserTableName="Duplicate_Message" msprop:Generator_RowChangedName="Duplicate_MessageRowChanged" msprop:Generator_RowEvArgName="Duplicate_MessageRowChangeEvent" msprop:Generator_RowClassName="Duplicate_MessageRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="message_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmessage_ID" msprop:Generator_ColumnPropNameInRow="message_ID" msprop:Generator_ColumnPropNameInTable="message_IDColumn" msprop:Generator_UserColumnName="message_ID" type="xs:short" />
@@ -812,7 +813,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Message" msprop:Generator_TableClassName="MessageDataTable" msprop:Generator_TableVarName="tableMessage" msprop:Generator_RowChangedName="MessageRowChanged" msprop:Generator_TablePropName="Message" msprop:Generator_RowDeletingName="MessageRowDeleting" msprop:Generator_RowChangingName="MessageRowChanging" msprop:Generator_RowEvHandlerName="MessageRowChangeEventHandler" msprop:Generator_RowDeletedName="MessageRowDeleted" msprop:Generator_RowClassName="MessageRow" msprop:Generator_UserTableName="Message" msprop:Generator_RowEvArgName="MessageRowChangeEvent">
+        <xs:element name="Message" msprop:Generator_TableClassName="MessageDataTable" msprop:Generator_TableVarName="tableMessage" msprop:Generator_TablePropName="Message" msprop:Generator_RowDeletingName="MessageRowDeleting" msprop:Generator_RowChangingName="MessageRowChanging" msprop:Generator_RowEvHandlerName="MessageRowChangeEventHandler" msprop:Generator_RowDeletedName="MessageRowDeleted" msprop:Generator_UserTableName="Message" msprop:Generator_RowChangedName="MessageRowChanged" msprop:Generator_RowEvArgName="MessageRowChangeEvent" msprop:Generator_RowClassName="MessageRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="message_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmessage_ID" msprop:Generator_ColumnPropNameInRow="message_ID" msprop:Generator_ColumnPropNameInTable="message_IDColumn" msprop:Generator_UserColumnName="message_ID" type="xs:short" />
@@ -834,7 +835,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Party" msprop:Generator_TableClassName="PartyDataTable" msprop:Generator_TableVarName="tableParty" msprop:Generator_RowChangedName="PartyRowChanged" msprop:Generator_TablePropName="Party" msprop:Generator_RowDeletingName="PartyRowDeleting" msprop:Generator_RowChangingName="PartyRowChanging" msprop:Generator_RowEvHandlerName="PartyRowChangeEventHandler" msprop:Generator_RowDeletedName="PartyRowDeleted" msprop:Generator_RowClassName="PartyRow" msprop:Generator_UserTableName="Party" msprop:Generator_RowEvArgName="PartyRowChangeEvent">
+        <xs:element name="Party" msprop:Generator_TableClassName="PartyDataTable" msprop:Generator_TableVarName="tableParty" msprop:Generator_TablePropName="Party" msprop:Generator_RowDeletingName="PartyRowDeleting" msprop:Generator_RowChangingName="PartyRowChanging" msprop:Generator_RowEvHandlerName="PartyRowChangeEventHandler" msprop:Generator_RowDeletedName="PartyRowDeleted" msprop:Generator_UserTableName="Party" msprop:Generator_RowChangedName="PartyRowChanged" msprop:Generator_RowEvArgName="PartyRowChangeEvent" msprop:Generator_RowClassName="PartyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="partyID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpartyID" msprop:Generator_ColumnPropNameInRow="partyID" msprop:Generator_ColumnPropNameInTable="partyIDColumn" msprop:Generator_UserColumnName="partyID" type="xs:int" />
@@ -848,7 +849,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Polling_Agent" msprop:Generator_TableClassName="Polling_AgentDataTable" msprop:Generator_TableVarName="tablePolling_Agent" msprop:Generator_RowChangedName="Polling_AgentRowChanged" msprop:Generator_TablePropName="Polling_Agent" msprop:Generator_RowDeletingName="Polling_AgentRowDeleting" msprop:Generator_RowChangingName="Polling_AgentRowChanging" msprop:Generator_RowEvHandlerName="Polling_AgentRowChangeEventHandler" msprop:Generator_RowDeletedName="Polling_AgentRowDeleted" msprop:Generator_RowClassName="Polling_AgentRow" msprop:Generator_UserTableName="Polling_Agent" msprop:Generator_RowEvArgName="Polling_AgentRowChangeEvent">
+        <xs:element name="Polling_Agent" msprop:Generator_TableClassName="Polling_AgentDataTable" msprop:Generator_TableVarName="tablePolling_Agent" msprop:Generator_TablePropName="Polling_Agent" msprop:Generator_RowDeletingName="Polling_AgentRowDeleting" msprop:Generator_RowChangingName="Polling_AgentRowChanging" msprop:Generator_RowEvHandlerName="Polling_AgentRowChangeEventHandler" msprop:Generator_RowDeletedName="Polling_AgentRowDeleted" msprop:Generator_UserTableName="Polling_Agent" msprop:Generator_RowChangedName="Polling_AgentRowChanged" msprop:Generator_RowEvArgName="Polling_AgentRowChangeEvent" msprop:Generator_RowClassName="Polling_AgentRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="polling_agent_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpolling_agent_ID" msprop:Generator_ColumnPropNameInRow="polling_agent_ID" msprop:Generator_ColumnPropNameInTable="polling_agent_IDColumn" msprop:Generator_UserColumnName="polling_agent_ID" type="xs:int" />
@@ -869,7 +870,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Polling_Station" msprop:Generator_TableClassName="Polling_StationDataTable" msprop:Generator_TableVarName="tablePolling_Station" msprop:Generator_RowChangedName="Polling_StationRowChanged" msprop:Generator_TablePropName="Polling_Station" msprop:Generator_RowDeletingName="Polling_StationRowDeleting" msprop:Generator_RowChangingName="Polling_StationRowChanging" msprop:Generator_RowEvHandlerName="Polling_StationRowChangeEventHandler" msprop:Generator_RowDeletedName="Polling_StationRowDeleted" msprop:Generator_RowClassName="Polling_StationRow" msprop:Generator_UserTableName="Polling_Station" msprop:Generator_RowEvArgName="Polling_StationRowChangeEvent">
+        <xs:element name="Polling_Station" msprop:Generator_TableClassName="Polling_StationDataTable" msprop:Generator_TableVarName="tablePolling_Station" msprop:Generator_TablePropName="Polling_Station" msprop:Generator_RowDeletingName="Polling_StationRowDeleting" msprop:Generator_RowChangingName="Polling_StationRowChanging" msprop:Generator_RowEvHandlerName="Polling_StationRowChangeEventHandler" msprop:Generator_RowDeletedName="Polling_StationRowDeleted" msprop:Generator_UserTableName="Polling_Station" msprop:Generator_RowChangedName="Polling_StationRowChanged" msprop:Generator_RowEvArgName="Polling_StationRowChangeEvent" msprop:Generator_RowClassName="Polling_StationRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="polling_station_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpolling_station_ID" msprop:Generator_ColumnPropNameInRow="polling_station_ID" msprop:Generator_ColumnPropNameInTable="polling_station_IDColumn" msprop:Generator_UserColumnName="polling_station_ID" type="xs:int" />
@@ -885,7 +886,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Result_Details" msprop:Generator_TableClassName="Result_DetailsDataTable" msprop:Generator_TableVarName="tableResult_Details" msprop:Generator_RowChangedName="Result_DetailsRowChanged" msprop:Generator_TablePropName="Result_Details" msprop:Generator_RowDeletingName="Result_DetailsRowDeleting" msprop:Generator_RowChangingName="Result_DetailsRowChanging" msprop:Generator_RowEvHandlerName="Result_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="Result_DetailsRowDeleted" msprop:Generator_RowClassName="Result_DetailsRow" msprop:Generator_UserTableName="Result_Details" msprop:Generator_RowEvArgName="Result_DetailsRowChangeEvent">
+        <xs:element name="Result_Details" msprop:Generator_TableClassName="Result_DetailsDataTable" msprop:Generator_TableVarName="tableResult_Details" msprop:Generator_TablePropName="Result_Details" msprop:Generator_RowDeletingName="Result_DetailsRowDeleting" msprop:Generator_RowChangingName="Result_DetailsRowChanging" msprop:Generator_RowEvHandlerName="Result_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="Result_DetailsRowDeleted" msprop:Generator_UserTableName="Result_Details" msprop:Generator_RowChangedName="Result_DetailsRowChanged" msprop:Generator_RowEvArgName="Result_DetailsRowChangeEvent" msprop:Generator_RowClassName="Result_DetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="result_details_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnresult_details_ID" msprop:Generator_ColumnPropNameInRow="result_details_ID" msprop:Generator_ColumnPropNameInTable="result_details_IDColumn" msprop:Generator_UserColumnName="result_details_ID" type="xs:int" />
@@ -896,7 +897,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Results" msprop:Generator_TableClassName="ResultsDataTable" msprop:Generator_TableVarName="tableResults" msprop:Generator_RowChangedName="ResultsRowChanged" msprop:Generator_TablePropName="Results" msprop:Generator_RowDeletingName="ResultsRowDeleting" msprop:Generator_RowChangingName="ResultsRowChanging" msprop:Generator_RowEvHandlerName="ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="ResultsRowDeleted" msprop:Generator_RowClassName="ResultsRow" msprop:Generator_UserTableName="Results" msprop:Generator_RowEvArgName="ResultsRowChangeEvent">
+        <xs:element name="Results" msprop:Generator_TableClassName="ResultsDataTable" msprop:Generator_TableVarName="tableResults" msprop:Generator_TablePropName="Results" msprop:Generator_RowDeletingName="ResultsRowDeleting" msprop:Generator_RowChangingName="ResultsRowChanging" msprop:Generator_RowEvHandlerName="ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="ResultsRowDeleted" msprop:Generator_UserTableName="Results" msprop:Generator_RowChangedName="ResultsRowChanged" msprop:Generator_RowEvArgName="ResultsRowChangeEvent" msprop:Generator_RowClassName="ResultsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="polling_agent" msprop:Generator_ColumnVarNameInTable="columnpolling_agent" msprop:Generator_ColumnPropNameInRow="polling_agent" msprop:Generator_ColumnPropNameInTable="polling_agentColumn" msprop:Generator_UserColumnName="polling_agent" type="xs:int" />
@@ -913,7 +914,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="spGet_Parliamentary_Results" msprop:Generator_TableClassName="spGet_Parliamentary_ResultsDataTable" msprop:Generator_TableVarName="tablespGet_Parliamentary_Results" msprop:Generator_RowChangedName="spGet_Parliamentary_ResultsRowChanged" msprop:Generator_TablePropName="spGet_Parliamentary_Results" msprop:Generator_RowDeletingName="spGet_Parliamentary_ResultsRowDeleting" msprop:Generator_RowChangingName="spGet_Parliamentary_ResultsRowChanging" msprop:Generator_RowEvHandlerName="spGet_Parliamentary_ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_Parliamentary_ResultsRowDeleted" msprop:Generator_RowClassName="spGet_Parliamentary_ResultsRow" msprop:Generator_UserTableName="spGet_Parliamentary_Results" msprop:Generator_RowEvArgName="spGet_Parliamentary_ResultsRowChangeEvent">
+        <xs:element name="spGet_Parliamentary_Results" msprop:Generator_TableClassName="spGet_Parliamentary_ResultsDataTable" msprop:Generator_TableVarName="tablespGet_Parliamentary_Results" msprop:Generator_TablePropName="spGet_Parliamentary_Results" msprop:Generator_RowDeletingName="spGet_Parliamentary_ResultsRowDeleting" msprop:Generator_RowChangingName="spGet_Parliamentary_ResultsRowChanging" msprop:Generator_RowEvHandlerName="spGet_Parliamentary_ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_Parliamentary_ResultsRowDeleted" msprop:Generator_UserTableName="spGet_Parliamentary_Results" msprop:Generator_RowChangedName="spGet_Parliamentary_ResultsRowChanged" msprop:Generator_RowEvArgName="spGet_Parliamentary_ResultsRowChangeEvent" msprop:Generator_RowClassName="spGet_Parliamentary_ResultsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Party" msprop:Generator_ColumnVarNameInTable="columnParty" msprop:Generator_ColumnPropNameInRow="Party" msprop:Generator_ColumnPropNameInTable="PartyColumn" msprop:Generator_UserColumnName="Party" minOccurs="0">
@@ -927,7 +928,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="spGet_Presidential_Results" msprop:Generator_TableClassName="spGet_Presidential_ResultsDataTable" msprop:Generator_TableVarName="tablespGet_Presidential_Results" msprop:Generator_RowChangedName="spGet_Presidential_ResultsRowChanged" msprop:Generator_TablePropName="spGet_Presidential_Results" msprop:Generator_RowDeletingName="spGet_Presidential_ResultsRowDeleting" msprop:Generator_RowChangingName="spGet_Presidential_ResultsRowChanging" msprop:Generator_RowEvHandlerName="spGet_Presidential_ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_Presidential_ResultsRowDeleted" msprop:Generator_RowClassName="spGet_Presidential_ResultsRow" msprop:Generator_UserTableName="spGet_Presidential_Results" msprop:Generator_RowEvArgName="spGet_Presidential_ResultsRowChangeEvent">
+        <xs:element name="spGet_Presidential_Results" msprop:Generator_TableClassName="spGet_Presidential_ResultsDataTable" msprop:Generator_TableVarName="tablespGet_Presidential_Results" msprop:Generator_TablePropName="spGet_Presidential_Results" msprop:Generator_RowDeletingName="spGet_Presidential_ResultsRowDeleting" msprop:Generator_RowChangingName="spGet_Presidential_ResultsRowChanging" msprop:Generator_RowEvHandlerName="spGet_Presidential_ResultsRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_Presidential_ResultsRowDeleted" msprop:Generator_UserTableName="spGet_Presidential_Results" msprop:Generator_RowChangedName="spGet_Presidential_ResultsRowChanged" msprop:Generator_RowEvArgName="spGet_Presidential_ResultsRowChangeEvent" msprop:Generator_RowClassName="spGet_Presidential_ResultsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Party" msprop:Generator_ColumnVarNameInTable="columnParty" msprop:Generator_ColumnPropNameInRow="Party" msprop:Generator_ColumnPropNameInTable="PartyColumn" msprop:Generator_UserColumnName="Party" minOccurs="0">
@@ -941,7 +942,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="p1" msprop:Generator_TableClassName="p1DataTable" msprop:Generator_TableVarName="tablep1" msprop:Generator_TablePropName="p1" msprop:Generator_RowDeletingName="p1RowDeleting" msprop:Generator_RowChangingName="p1RowChanging" msprop:Generator_RowEvHandlerName="p1RowChangeEventHandler" msprop:Generator_RowDeletedName="p1RowDeleted" msprop:Generator_UserTableName="p1" msprop:Generator_RowChangedName="p1RowChanged" msprop:Generator_RowEvArgName="p1RowChangeEvent" msprop:Generator_RowClassName="p1Row">
+        <xs:element name="p1" msprop:Generator_TableClassName="p1DataTable" msprop:Generator_TableVarName="tablep1" msprop:Generator_RowChangedName="p1RowChanged" msprop:Generator_TablePropName="p1" msprop:Generator_RowDeletingName="p1RowDeleting" msprop:Generator_RowChangingName="p1RowChanging" msprop:Generator_RowEvHandlerName="p1RowChangeEventHandler" msprop:Generator_RowDeletedName="p1RowDeleted" msprop:Generator_RowClassName="p1Row" msprop:Generator_UserTableName="p1" msprop:Generator_RowEvArgName="p1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="result_fk_ID" msprop:Generator_ColumnVarNameInTable="columnresult_fk_ID" msprop:Generator_ColumnPropNameInRow="result_fk_ID" msprop:Generator_ColumnPropNameInTable="result_fk_IDColumn" msprop:Generator_UserColumnName="result_fk_ID" type="xs:int" minOccurs="0" />
@@ -950,7 +951,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="p2" msprop:Generator_TableClassName="p2DataTable" msprop:Generator_TableVarName="tablep2" msprop:Generator_TablePropName="p2" msprop:Generator_RowDeletingName="p2RowDeleting" msprop:Generator_RowChangingName="p2RowChanging" msprop:Generator_RowEvHandlerName="p2RowChangeEventHandler" msprop:Generator_RowDeletedName="p2RowDeleted" msprop:Generator_UserTableName="p2" msprop:Generator_RowChangedName="p2RowChanged" msprop:Generator_RowEvArgName="p2RowChangeEvent" msprop:Generator_RowClassName="p2Row">
+        <xs:element name="p2" msprop:Generator_TableClassName="p2DataTable" msprop:Generator_TableVarName="tablep2" msprop:Generator_RowChangedName="p2RowChanged" msprop:Generator_TablePropName="p2" msprop:Generator_RowDeletingName="p2RowDeleting" msprop:Generator_RowChangingName="p2RowChanging" msprop:Generator_RowEvHandlerName="p2RowChangeEventHandler" msprop:Generator_RowDeletedName="p2RowDeleted" msprop:Generator_RowClassName="p2Row" msprop:Generator_UserTableName="p2" msprop:Generator_RowEvArgName="p2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="result_fk_ID" msprop:Generator_ColumnVarNameInTable="columnresult_fk_ID" msprop:Generator_ColumnPropNameInRow="result_fk_ID" msprop:Generator_ColumnPropNameInTable="result_fk_IDColumn" msprop:Generator_UserColumnName="result_fk_ID" type="xs:int" minOccurs="0" />
@@ -959,7 +960,7 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="pAll" msprop:Generator_TableClassName="pAllDataTable" msprop:Generator_TableVarName="tablepAll" msprop:Generator_TablePropName="pAll" msprop:Generator_RowDeletingName="pAllRowDeleting" msprop:Generator_RowChangingName="pAllRowChanging" msprop:Generator_RowEvHandlerName="pAllRowChangeEventHandler" msprop:Generator_RowDeletedName="pAllRowDeleted" msprop:Generator_UserTableName="pAll" msprop:Generator_RowChangedName="pAllRowChanged" msprop:Generator_RowEvArgName="pAllRowChangeEvent" msprop:Generator_RowClassName="pAllRow">
+        <xs:element name="pAll" msprop:Generator_TableClassName="pAllDataTable" msprop:Generator_TableVarName="tablepAll" msprop:Generator_RowChangedName="pAllRowChanged" msprop:Generator_TablePropName="pAll" msprop:Generator_RowDeletingName="pAllRowDeleting" msprop:Generator_RowChangingName="pAllRowChanging" msprop:Generator_RowEvHandlerName="pAllRowChangeEventHandler" msprop:Generator_RowDeletedName="pAllRowDeleted" msprop:Generator_RowClassName="pAllRow" msprop:Generator_UserTableName="pAll" msprop:Generator_RowEvArgName="pAllRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="result_fk_ID" msprop:Generator_ColumnVarNameInTable="columnresult_fk_ID" msprop:Generator_ColumnPropNameInRow="result_fk_ID" msprop:Generator_ColumnPropNameInTable="result_fk_IDColumn" msprop:Generator_UserColumnName="result_fk_ID" type="xs:int" minOccurs="0" />
@@ -970,14 +971,21 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="spGet_All_Result" msprop:Generator_TableClassName="spGet_All_ResultDataTable" msprop:Generator_TableVarName="tablespGet_All_Result" msprop:Generator_TablePropName="spGet_All_Result" msprop:Generator_RowDeletingName="spGet_All_ResultRowDeleting" msprop:Generator_RowChangingName="spGet_All_ResultRowChanging" msprop:Generator_RowEvHandlerName="spGet_All_ResultRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_All_ResultRowDeleted" msprop:Generator_UserTableName="spGet_All_Result" msprop:Generator_RowChangedName="spGet_All_ResultRowChanged" msprop:Generator_RowEvArgName="spGet_All_ResultRowChangeEvent" msprop:Generator_RowClassName="spGet_All_ResultRow">
+        <xs:element name="spGet_All_Result" msprop:Generator_TableClassName="spGet_All_ResultDataTable" msprop:Generator_TableVarName="tablespGet_All_Result" msprop:Generator_RowChangedName="spGet_All_ResultRowChanged" msprop:Generator_TablePropName="spGet_All_Result" msprop:Generator_RowDeletingName="spGet_All_ResultRowDeleting" msprop:Generator_RowChangingName="spGet_All_ResultRowChanging" msprop:Generator_RowEvHandlerName="spGet_All_ResultRowChangeEventHandler" msprop:Generator_RowDeletedName="spGet_All_ResultRowDeleted" msprop:Generator_RowClassName="spGet_All_ResultRow" msprop:Generator_UserTableName="spGet_All_Result" msprop:Generator_RowEvArgName="spGet_All_ResultRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="result_fk_ID" msprop:Generator_ColumnVarNameInTable="columnresult_fk_ID" msprop:Generator_ColumnPropNameInRow="result_fk_ID" msprop:Generator_ColumnPropNameInTable="result_fk_IDColumn" msprop:Generator_UserColumnName="result_fk_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="paliamentary" msprop:Generator_ColumnVarNameInTable="columnpaliamentary" msprop:Generator_ColumnPropNameInRow="paliamentary" msprop:Generator_ColumnPropNameInTable="paliamentaryColumn" msprop:Generator_UserColumnName="paliamentary" type="xs:int" minOccurs="0" />
-              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" minOccurs="0" />
-              <xs:element name="presidential" msprop:Generator_ColumnVarNameInTable="columnpresidential" msprop:Generator_ColumnPropNameInRow="presidential" msprop:Generator_ColumnPropNameInTable="presidentialColumn" msprop:Generator_UserColumnName="presidential" type="xs:int" minOccurs="0" />
-              <xs:element name="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" type="xs:int" minOccurs="0" />
+              <xs:element name="Polling_x0020_Station" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPolling_Station" msprop:Generator_ColumnPropNameInRow="Polling_Station" msprop:Generator_ColumnPropNameInTable="Polling_StationColumn" msprop:Generator_UserColumnName="Polling Station" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="306" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="polling_agent" msprop:Generator_ColumnVarNameInTable="columnpolling_agent" msprop:Generator_ColumnPropNameInRow="polling_agent" msprop:Generator_ColumnPropNameInTable="polling_agentColumn" msprop:Generator_UserColumnName="polling_agent" type="xs:int" />
+              <xs:element name="NPP_x0020_Parliamentary" msprop:Generator_ColumnVarNameInTable="columnNPP_Parliamentary" msprop:Generator_ColumnPropNameInRow="NPP_Parliamentary" msprop:Generator_ColumnPropNameInTable="NPP_ParliamentaryColumn" msprop:Generator_UserColumnName="NPP Parliamentary" type="xs:int" minOccurs="0" />
+              <xs:element name="NDC_x0020_Parliamentary" msprop:Generator_ColumnVarNameInTable="columnNDC_Parliamentary" msprop:Generator_ColumnPropNameInRow="NDC_Parliamentary" msprop:Generator_ColumnPropNameInTable="NDC_ParliamentaryColumn" msprop:Generator_UserColumnName="NDC Parliamentary" type="xs:int" minOccurs="0" />
+              <xs:element name="NPP_x0020_Presidential" msprop:Generator_ColumnVarNameInTable="columnNPP_Presidential" msprop:Generator_ColumnPropNameInRow="NPP_Presidential" msprop:Generator_ColumnPropNameInTable="NPP_PresidentialColumn" msprop:Generator_UserColumnName="NPP Presidential" type="xs:int" minOccurs="0" />
+              <xs:element name="NDC_x0020_Presidential" msprop:Generator_ColumnVarNameInTable="columnNDC_Presidential" msprop:Generator_ColumnPropNameInRow="NDC_Presidential" msprop:Generator_ColumnPropNameInTable="NDC_PresidentialColumn" msprop:Generator_UserColumnName="NDC Presidential" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1015,15 +1023,19 @@ SELECT polling_agent, community, time, count_no, category FROM Results WHERE (po
       <xs:selector xpath=".//mstns:Results" />
       <xs:field xpath="mstns:polling_agent" />
     </xs:unique>
+    <xs:unique name="spGet_All_Result_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:spGet_All_Result" />
+      <xs:field xpath="mstns:polling_agent" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Polling_Station_Community" msdata:parent="Community" msdata:child="Polling_Station" msdata:parentkey="ID" msdata:childkey="community" msprop:Generator_UserChildTable="Polling_Station" msprop:Generator_ChildPropName="GetPolling_StationRows" msprop:Generator_UserRelationName="FK_Polling_Station_Community" msprop:Generator_RelationVarName="relationFK_Polling_Station_Community" msprop:Generator_UserParentTable="Community" msprop:Generator_ParentPropName="CommunityRow" />
-      <msdata:Relationship name="FK_Polling_Station_Polling_Agent" msdata:parent="Polling_Agent" msdata:child="Polling_Station" msdata:parentkey="polling_agent_ID" msdata:childkey="polling_agent" msprop:Generator_UserChildTable="Polling_Station" msprop:Generator_ChildPropName="GetPolling_StationRows" msprop:Generator_UserRelationName="FK_Polling_Station_Polling_Agent" msprop:Generator_RelationVarName="relationFK_Polling_Station_Polling_Agent" msprop:Generator_UserParentTable="Polling_Agent" msprop:Generator_ParentPropName="Polling_AgentRow" />
-      <msdata:Relationship name="FK_Result_Details_Party" msdata:parent="Party" msdata:child="Result_Details" msdata:parentkey="partyID" msdata:childkey="party_fk_ID" msprop:Generator_UserChildTable="Result_Details" msprop:Generator_ChildPropName="GetResult_DetailsRows" msprop:Generator_UserRelationName="FK_Result_Details_Party" msprop:Generator_RelationVarName="relationFK_Result_Details_Party" msprop:Generator_UserParentTable="Party" msprop:Generator_ParentPropName="PartyRow" />
-      <msdata:Relationship name="FK_Result_Details_Results" msdata:parent="Results" msdata:child="Result_Details" msdata:parentkey="polling_agent" msdata:childkey="result_fk_ID" msprop:Generator_UserChildTable="Result_Details" msprop:Generator_ChildPropName="GetResult_DetailsRows" msprop:Generator_UserRelationName="FK_Result_Details_Results" msprop:Generator_ParentPropName="ResultsRow" msprop:Generator_RelationVarName="relationFK_Result_Details_Results" msprop:Generator_UserParentTable="Results" />
-      <msdata:Relationship name="FK_Results_Community" msdata:parent="Community" msdata:child="Results" msdata:parentkey="ID" msdata:childkey="community" msprop:Generator_UserChildTable="Results" msprop:Generator_ChildPropName="GetResultsRows" msprop:Generator_UserRelationName="FK_Results_Community" msprop:Generator_RelationVarName="relationFK_Results_Community" msprop:Generator_UserParentTable="Community" msprop:Generator_ParentPropName="CommunityRow" />
-      <msdata:Relationship name="FK_Results_Polling_Agent" msdata:parent="Polling_Agent" msdata:child="Results" msdata:parentkey="polling_agent_ID" msdata:childkey="polling_agent" msprop:Generator_UserChildTable="Results" msprop:Generator_ChildPropName="GetResultsRows" msprop:Generator_UserRelationName="FK_Results_Polling_Agent" msprop:Generator_RelationVarName="relationFK_Results_Polling_Agent" msprop:Generator_UserParentTable="Polling_Agent" msprop:Generator_ParentPropName="Polling_AgentRow" />
+      <msdata:Relationship name="FK_Polling_Station_Community" msdata:parent="Community" msdata:child="Polling_Station" msdata:parentkey="ID" msdata:childkey="community" msprop:Generator_UserChildTable="Polling_Station" msprop:Generator_ChildPropName="GetPolling_StationRows" msprop:Generator_UserRelationName="FK_Polling_Station_Community" msprop:Generator_ParentPropName="CommunityRow" msprop:Generator_RelationVarName="relationFK_Polling_Station_Community" msprop:Generator_UserParentTable="Community" />
+      <msdata:Relationship name="FK_Polling_Station_Polling_Agent" msdata:parent="Polling_Agent" msdata:child="Polling_Station" msdata:parentkey="polling_agent_ID" msdata:childkey="polling_agent" msprop:Generator_UserChildTable="Polling_Station" msprop:Generator_ChildPropName="GetPolling_StationRows" msprop:Generator_UserRelationName="FK_Polling_Station_Polling_Agent" msprop:Generator_ParentPropName="Polling_AgentRow" msprop:Generator_RelationVarName="relationFK_Polling_Station_Polling_Agent" msprop:Generator_UserParentTable="Polling_Agent" />
+      <msdata:Relationship name="FK_Result_Details_Party" msdata:parent="Party" msdata:child="Result_Details" msdata:parentkey="partyID" msdata:childkey="party_fk_ID" msprop:Generator_UserChildTable="Result_Details" msprop:Generator_ChildPropName="GetResult_DetailsRows" msprop:Generator_UserRelationName="FK_Result_Details_Party" msprop:Generator_ParentPropName="PartyRow" msprop:Generator_RelationVarName="relationFK_Result_Details_Party" msprop:Generator_UserParentTable="Party" />
+      <msdata:Relationship name="FK_Result_Details_Results" msdata:parent="Results" msdata:child="Result_Details" msdata:parentkey="polling_agent" msdata:childkey="result_fk_ID" msprop:Generator_UserChildTable="Result_Details" msprop:Generator_ChildPropName="GetResult_DetailsRows" msprop:Generator_UserRelationName="FK_Result_Details_Results" msprop:Generator_RelationVarName="relationFK_Result_Details_Results" msprop:Generator_UserParentTable="Results" msprop:Generator_ParentPropName="ResultsRow" />
+      <msdata:Relationship name="FK_Results_Community" msdata:parent="Community" msdata:child="Results" msdata:parentkey="ID" msdata:childkey="community" msprop:Generator_UserChildTable="Results" msprop:Generator_ChildPropName="GetResultsRows" msprop:Generator_UserRelationName="FK_Results_Community" msprop:Generator_ParentPropName="CommunityRow" msprop:Generator_RelationVarName="relationFK_Results_Community" msprop:Generator_UserParentTable="Community" />
+      <msdata:Relationship name="FK_Results_Polling_Agent" msdata:parent="Polling_Agent" msdata:child="Results" msdata:parentkey="polling_agent_ID" msdata:childkey="polling_agent" msprop:Generator_UserChildTable="Results" msprop:Generator_ChildPropName="GetResultsRows" msprop:Generator_UserRelationName="FK_Results_Polling_Agent" msprop:Generator_ParentPropName="Polling_AgentRow" msprop:Generator_RelationVarName="relationFK_Results_Polling_Agent" msprop:Generator_UserParentTable="Polling_Agent" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -17,6 +17,7 @@ namespace DemoCol
         public ResultComp()
         {
             InitializeComponent();
+            this.MinimumSize = new System.Drawing.Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.8), (int)(Screen.PrimaryScreen.Bounds.Height * 0.8));
         }
 
         public delegate void SafeUpdateCharts();
@@ -111,6 +112,11 @@ namespace DemoCol
 
             //this.electionDBDataSet.spGet_Parliamentary_Results.Columns[0].
             //presidentialData = DatabaseConnection.GetPresidentialResult();
+            this.Width = ((int)(Screen.PrimaryScreen.Bounds.Width * 0.8));
+            this.Height = ((int)(Screen.PrimaryScreen.Bounds.Height * 0.8));
+
+            dataGridResults.Width = Convert.ToInt32(this.Width * 0.7);
+            panelCharts.Width = (this.Size.Width - dataGridResults.Width);
 
             UpdateCharts();
             SqlCommand command = new SqlCommand("dbo.spGet_All_Result", new SqlConnection(DatabaseConnection.connectionString));
@@ -198,11 +204,11 @@ namespace DemoCol
                     using (SqlCommand command = new SqlCommand("dbo.spResult_Details_Update", new SqlConnection(DatabaseConnection.connectionString)))
                     {
                         command.Connection.Open();
-                        command.Parameters.AddWithValue("@agent", result[0]);
-                        command.Parameters.AddWithValue("@npp_pa", result[1]);
-                        command.Parameters.AddWithValue("@ndc_pa", result[2]);
-                        command.Parameters.AddWithValue("@npp_pr", result[3]);
-                        command.Parameters.AddWithValue("@ndc_pr", result[4]);
+                        command.Parameters.AddWithValue("@agent", result[1]);
+                        command.Parameters.AddWithValue("@npp_pa", result[2]);
+                        command.Parameters.AddWithValue("@ndc_pa", result[3]);
+                        command.Parameters.AddWithValue("@npp_pr", result[4]);
+                        command.Parameters.AddWithValue("@ndc_pr", result[5]);
 
                         command.CommandType = CommandType.StoredProcedure;
                         command.ExecuteNonQuery();
@@ -214,6 +220,25 @@ namespace DemoCol
                 
             }
                 
+        }
+
+        private void ResultComp_SizeChanged(object sender, EventArgs e)
+        {
+           
+            dataGridResults.Width = Convert.ToInt32(this.Width * 0.7);
+            panelCharts.Width = (this.Size.Width - dataGridResults.Width);
+
+            var sw = Screen.PrimaryScreen.Bounds.Width;
+            var sh = Screen.PrimaryScreen.Bounds.Height;
+            var fw = this.Width;
+            var fh = this.Height;
+            var pw = ((decimal)fw / sw) * 100;
+            var ph = ((decimal)fh / sh) * 100;
+
+            var wid = ((this.Width) *100);
+            var heit = ((this.Height / Screen.PrimaryScreen.Bounds.Height) * 100);
+            labelWidth.Text = $"{pw}";
+            labelHeight.Text = $"{ph}";
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Windows.Forms;
 
 namespace DemoCol
 {
@@ -38,28 +39,28 @@ namespace DemoCol
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.labelHeight = new System.Windows.Forms.Label();
+            this.labelWidth = new System.Windows.Forms.Label();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonCon = new System.Windows.Forms.Button();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.buttonModifyResult = new System.Windows.Forms.Button();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
-            this.resultfkIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paliamentaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.presidentialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expr2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spGetAllResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.electionDBDataSet = new DemoCol.ElectionDBDataSet();
             this.panelCharts = new System.Windows.Forms.Panel();
             this.chartPresidential = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartParliament = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.spGetAllResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.electionDBDataSet = new DemoCol.ElectionDBDataSet();
             this.spGet_All_ResultTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_All_ResultTableAdapter();
             this.spGetParliamentaryResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spGet_Parliamentary_ResultsTableAdapter = new DemoCol.ElectionDBDataSetTableAdapters.spGet_Parliamentary_ResultsTableAdapter();
@@ -68,17 +69,19 @@ namespace DemoCol
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).BeginInit();
             this.panelCharts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPresidential)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartParliament)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetParliamentaryResultsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetPresidentialResultsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.labelHeight);
+            this.panelHeader.Controls.Add(this.labelWidth);
             this.panelHeader.Controls.Add(this.buttonLoad);
             this.panelHeader.Controls.Add(this.buttonCon);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -87,8 +90,28 @@ namespace DemoCol
             this.panelHeader.Size = new System.Drawing.Size(1350, 85);
             this.panelHeader.TabIndex = 0;
             // 
+            // labelHeight
+            // 
+            this.labelHeight.AutoSize = true;
+            this.labelHeight.Location = new System.Drawing.Point(651, 50);
+            this.labelHeight.Name = "labelHeight";
+            this.labelHeight.Size = new System.Drawing.Size(46, 17);
+            this.labelHeight.TabIndex = 3;
+            this.labelHeight.Text = "label1";
+            // 
+            // labelWidth
+            // 
+            this.labelWidth.AutoSize = true;
+            this.labelWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelWidth.Location = new System.Drawing.Point(655, 13);
+            this.labelWidth.Name = "labelWidth";
+            this.labelWidth.Size = new System.Drawing.Size(42, 19);
+            this.labelWidth.TabIndex = 2;
+            this.labelWidth.Text = "width";
+            // 
             // buttonLoad
             // 
+            this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoad.Location = new System.Drawing.Point(1091, 18);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(126, 39);
@@ -128,62 +151,99 @@ namespace DemoCol
             // 
             // dataGridResults
             // 
-            this.dataGridResults.AutoGenerateColumns = false;
+            this.dataGridResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.resultfkIDDataGridViewTextBoxColumn,
-            this.paliamentaryDataGridViewTextBoxColumn,
-            this.expr1DataGridViewTextBoxColumn,
-            this.presidentialDataGridViewTextBoxColumn,
-            this.expr2DataGridViewTextBoxColumn});
-            this.dataGridResults.DataSource = this.spGetAllResultBindingSource;
-            this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridResults.Location = new System.Drawing.Point(0, 85);
             this.dataGridResults.Name = "dataGridResults";
             this.dataGridResults.RowHeadersWidth = 51;
             this.dataGridResults.RowTemplate.Height = 24;
-            this.dataGridResults.Size = new System.Drawing.Size(1350, 599);
+            this.dataGridResults.Size = new System.Drawing.Size(894, 599);
             this.dataGridResults.TabIndex = 2;
             // 
-            // resultfkIDDataGridViewTextBoxColumn
+            // panelCharts
             // 
-            this.resultfkIDDataGridViewTextBoxColumn.DataPropertyName = "result_fk_ID";
-            this.resultfkIDDataGridViewTextBoxColumn.HeaderText = "result_fk_ID";
-            this.resultfkIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.resultfkIDDataGridViewTextBoxColumn.Name = "resultfkIDDataGridViewTextBoxColumn";
-            this.resultfkIDDataGridViewTextBoxColumn.Width = 125;
+            this.panelCharts.Controls.Add(this.chartPresidential);
+            this.panelCharts.Controls.Add(this.chartParliament);
+            this.panelCharts.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCharts.Location = new System.Drawing.Point(915, 85);
+            this.panelCharts.Name = "panelCharts";
+            this.panelCharts.Size = new System.Drawing.Size(435, 599);
+            this.panelCharts.TabIndex = 3;
             // 
-            // paliamentaryDataGridViewTextBoxColumn
+            // chartPresidential
             // 
-            this.paliamentaryDataGridViewTextBoxColumn.DataPropertyName = "paliamentary";
-            this.paliamentaryDataGridViewTextBoxColumn.HeaderText = "NPP Paliamentary";
-            this.paliamentaryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.paliamentaryDataGridViewTextBoxColumn.Name = "paliamentaryDataGridViewTextBoxColumn";
-            this.paliamentaryDataGridViewTextBoxColumn.Width = 125;
+            this.chartPresidential.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 80F;
+            chartArea1.Position.Width = 100F;
+            chartArea1.Position.Y = 5.597563F;
+            this.chartPresidential.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend1.Name = "Legend1";
+            this.chartPresidential.Legends.Add(legend1);
+            this.chartPresidential.Location = new System.Drawing.Point(34, 344);
+            this.chartPresidential.Name = "chartPresidential";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Label = "#PERCENT";
+            series1.Legend = "Legend1";
+            series1.LegendText = "#VALX";
+            series1.Name = "SeriesPresidential";
+            this.chartPresidential.Series.Add(series1);
+            this.chartPresidential.Size = new System.Drawing.Size(341, 255);
+            this.chartPresidential.TabIndex = 1;
+            this.chartPresidential.Text = "chart2";
+            title1.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title1.Name = "Title1";
+            title1.Text = "Presidential Result";
+            this.chartPresidential.Titles.Add(title1);
             // 
-            // expr1DataGridViewTextBoxColumn
+            // chartParliament
             // 
-            this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.HeaderText = "NDC Paliamentary";
-            this.expr1DataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
-            this.expr1DataGridViewTextBoxColumn.Width = 125;
-            // 
-            // presidentialDataGridViewTextBoxColumn
-            // 
-            this.presidentialDataGridViewTextBoxColumn.DataPropertyName = "presidential";
-            this.presidentialDataGridViewTextBoxColumn.HeaderText = "NPP Presidential";
-            this.presidentialDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.presidentialDataGridViewTextBoxColumn.Name = "presidentialDataGridViewTextBoxColumn";
-            this.presidentialDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // expr2DataGridViewTextBoxColumn
-            // 
-            this.expr2DataGridViewTextBoxColumn.DataPropertyName = "Expr2";
-            this.expr2DataGridViewTextBoxColumn.HeaderText = "NDC Presidential";
-            this.expr2DataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expr2DataGridViewTextBoxColumn.Name = "expr2DataGridViewTextBoxColumn";
-            this.expr2DataGridViewTextBoxColumn.Width = 125;
+            this.chartParliament.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 88.32358F;
+            chartArea2.Position.Width = 80.58823F;
+            chartArea2.Position.X = 19.41177F;
+            chartArea2.Position.Y = 11.67642F;
+            this.chartParliament.ChartAreas.Add(chartArea2);
+            legend2.Alignment = System.Drawing.StringAlignment.Far;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.Name = "Legend1";
+            legend2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.chartParliament.Legends.Add(legend2);
+            this.chartParliament.Location = new System.Drawing.Point(34, 40);
+            this.chartParliament.Name = "chartParliament";
+            this.chartParliament.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Label = "#PERCENT";
+            series2.Legend = "Legend1";
+            series2.LegendText = "#VALX (#VAL)";
+            series2.Name = "SeriesParliament";
+            this.chartParliament.Series.Add(series2);
+            this.chartParliament.Size = new System.Drawing.Size(341, 252);
+            this.chartParliament.TabIndex = 0;
+            this.chartParliament.Text = "Parliamentary";
+            title2.Name = "Title1";
+            title2.Text = "Parliamentary Result";
+            this.chartParliament.Titles.Add(title2);
             // 
             // spGetAllResultBindingSource
             // 
@@ -194,50 +254,6 @@ namespace DemoCol
             // 
             this.electionDBDataSet.DataSetName = "ElectionDBDataSet";
             this.electionDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panelCharts
-            // 
-            this.panelCharts.Controls.Add(this.chartPresidential);
-            this.panelCharts.Controls.Add(this.chartParliament);
-            this.panelCharts.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelCharts.Location = new System.Drawing.Point(764, 85);
-            this.panelCharts.Name = "panelCharts";
-            this.panelCharts.Size = new System.Drawing.Size(586, 599);
-            this.panelCharts.TabIndex = 3;
-            // 
-            // chartPresidential
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPresidential.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPresidential.Legends.Add(legend1);
-            this.chartPresidential.Location = new System.Drawing.Point(111, 338);
-            this.chartPresidential.Name = "chartPresidential";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "SeriesPresidential";
-            this.chartPresidential.Series.Add(series1);
-            this.chartPresidential.Size = new System.Drawing.Size(341, 255);
-            this.chartPresidential.TabIndex = 1;
-            this.chartPresidential.Text = "chart2";
-            // 
-            // chartParliament
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartParliament.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartParliament.Legends.Add(legend2);
-            this.chartParliament.Location = new System.Drawing.Point(111, 35);
-            this.chartParliament.Name = "chartParliament";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "SeriesParliament";
-            this.chartParliament.Series.Add(series2);
-            this.chartParliament.Size = new System.Drawing.Size(341, 252);
-            this.chartParliament.TabIndex = 0;
-            this.chartParliament.Text = "chart1";
             // 
             // spGet_All_ResultTableAdapter
             // 
@@ -271,16 +287,19 @@ namespace DemoCol
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.panelHeader);
             this.Name = "ResultComp";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NKWANTA NORTH ELECTION RESULT COLLATOR";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.ResultComp_SizeChanged);
             this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.panelFooter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).EndInit();
             this.panelCharts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartPresidential)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartParliament)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spGetAllResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.electionDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetParliamentaryResultsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetPresidentialResultsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -304,12 +323,9 @@ namespace DemoCol
         private ElectionDBDataSetTableAdapters.spGet_Presidential_ResultsTableAdapter spGet_Presidential_ResultsTableAdapter;
         private System.Windows.Forms.Button buttonCon;
         private System.Windows.Forms.Button buttonLoad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultfkIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paliamentaryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn presidentialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expr2DataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonModifyResult;
+        private System.Windows.Forms.Label labelHeight;
+        private System.Windows.Forms.Label labelWidth;
     }
 }
 
